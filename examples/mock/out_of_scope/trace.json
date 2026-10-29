@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "run_id": "41bb4b06-bf7d-4dd9-b73d-9dcc39a94fe8",
+  "started_at": "2026-10-29T07:46:18.501485+00:00",
+  "mode": "mock",
+  "model": "offline-rule-simulator-v1",
+  "endpoint_host": null,
+  "evidence_type": "offline_simulation",
+  "corpus_sha256": "2fdea7015f3d86041d184e4a7717c97eb71b21608a55227c1cf6c6aca0def512",
+  "prompt_sha256": "bce43a9d28b8f2bee77a068703f6417144c82e6e1870413b1815d63ae6327870",
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 10
+  },
+  "input": {
+    "question": "火星殖民地的氧气配额是多少？",
+    "history": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "model_step": 1,
+      "timestamp": "2026-10-29T07:46:18.501485+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "火星殖民地的氧气配额是多少？",
+        "top_k": 10
+      },
+      "decision_reason": "先查找与问题相关的资料。",
+      "observation": {
+        "ok": true,
+        "query": "火星殖民地的氧气配额是多少？",
+        "hits": [],
+        "total_matches": 0,
+        "has_more": false
+      },
+      "observation_summary": "命中0份，返回：",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 2,
+      "model_step": 2,
+      "timestamp": "2026-10-29T07:46:18.502488+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "火星殖民地的氧气配额",
+        "top_k": 30
+      },
+      "decision_reason": "首次检索为空，改写查询并扩大候选数量。",
+      "observation": {
+        "ok": true,
+        "query": "火星殖民地的氧气配额",
+        "hits": [],
+        "total_matches": 0,
+        "has_more": false
+      },
+      "observation_summary": "命中0份，返回：",
+      "next_action": "finish"
+    },
+    {
+      "step": 3,
+      "model_step": 3,
+      "timestamp": "2026-10-29T07:46:18.502488+00:00",
+      "action": "finish",
+      "arguments": {
+        "status": "insufficient_evidence",
+        "answer": "当前知识库未检索到支持该问题的资料，无法给出可靠答案。",
+        "citations": [],
+        "gaps": [
+          "需要补充与问题相关的制度或产品文档"
+        ],
+        "conflicts": []
+      },
+      "decision_reason": "离线模拟器根据已返回的工具结果输出；不代表真实模型决策。",
+      "observation": {
+        "ok": true,
+        "message": "结构与引用溯源校验通过；语义支持性仍需评估"
+      },
+      "observation_summary": "结构与引用溯源校验通过；语义支持性仍需评估",
+      "next_action": "end:insufficient_evidence"
+    }
+  ],
+  "result": {
+    "status": "insufficient_evidence",
+    "answer": "当前知识库未检索到支持该问题的资料，无法给出可靠答案。",
+    "citations": [],
+    "gaps": [
+      "需要补充与问题相关的制度或产品文档"
+    ],
+    "conflicts": []
+  },
+  "model_calls": 3,
+  "tool_calls": 2,
+  "elapsed_seconds": 0.0,
+  "finished_at": "2026-10-29T07:46:18.502488+00:00"
+}

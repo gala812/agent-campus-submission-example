@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "run_id": "796ba190-bb01-490f-a2a9-d08d517611c8",
+  "started_at": "2026-10-29T07:48:59.312681+00:00",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "endpoint_host": "api.deepseek.com",
+  "evidence_type": "real_model_run",
+  "corpus_sha256": "2fdea7015f3d86041d184e4a7717c97eb71b21608a55227c1cf6c6aca0def512",
+  "prompt_sha256": "bce43a9d28b8f2bee77a068703f6417144c82e6e1870413b1815d63ae6327870",
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 10
+  },
+  "input": {
+    "question": "星剪支持自动生成字幕吗？",
+    "history": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "model_step": 1,
+      "timestamp": "2026-10-29T07:49:10.269822+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "星剪 自动生成字幕",
+        "top_k": 10
+      },
+      "decision_reason": "检索星剪字幕功能相关制度或产品资料",
+      "observation": {
+        "ok": false,
+        "error": {
+          "code": "injected_tool_failure",
+          "message": "合成故障：工具暂时不可用",
+          "retryable": true
+        }
+      },
+      "observation_summary": "injected_tool_failure: 合成故障：工具暂时不可用",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 2,
+      "model_step": 2,
+      "timestamp": "2026-10-29T07:49:15.918177+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "星剪 字幕 功能",
+        "top_k": 10
+      },
+      "decision_reason": "工具故障，重试检索星剪字幕功能",
+      "observation": {
+        "ok": false,
+        "error": {
+          "code": "injected_tool_failure",
+          "message": "合成故障：工具暂时不可用",
+          "retryable": true
+        }
+      },
+      "observation_summary": "injected_tool_failure: 合成故障：工具暂时不可用",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 3,
+      "model_step": 3,
+      "timestamp": "2026-10-29T07:49:27.203001+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "星剪",
+        "top_k": 10
+      },
+      "decision_reason": "再次重试，改用更宽泛关键词",
+      "observation": {
+        "ok": false,
+        "error": {
+          "code": "injected_tool_failure",
+          "message": "合成故障：工具暂时不可用",
+          "retryable": true
+        }
+      },
+      "observation_summary": "injected_tool_failure: 合成故障：工具暂时不可用",
+      "next_action": "finish"
+    },
+    {
+      "step": 4,
+      "model_step": 4,
+      "timestamp": "2026-10-29T07:49:38.627117+00:00",
+      "action": "finish",
+      "arguments": {
+        "status": "tool_error",
+        "answer": "检索工具连续三次返回“合成故障：工具暂时不可用”，因此本轮无法读取任何资料，无法确认星剪是否支持自动生成字幕。请稍后重试。",
+        "citations": [],
+        "gaps": [
+          "检索工具不可用，未能获取星剪字幕功能的相关资料"
+        ],
+        "conflicts": []
+      },
+      "decision_reason": "检索工具连续三次故障，无法读取依据",
+      "observation": {
+        "ok": true,
+        "message": "结构与引用溯源校验通过；语义支持性仍需评估"
+      },
+      "observation_summary": "结构与引用溯源校验通过；语义支持性仍需评估",
+      "next_action": "end:tool_error"
+    }
+  ],
+  "result": {
+    "status": "tool_error",
+    "answer": "检索工具连续三次返回“合成故障：工具暂时不可用”，因此本轮无法读取任何资料，无法确认星剪是否支持自动生成字幕。请稍后重试。",
+    "citations": [],
+    "gaps": [
+      "检索工具不可用，未能获取星剪字幕功能的相关资料"
+    ],
+    "conflicts": []
+  },
+  "model_calls": 4,
+  "tool_calls": 3,
+  "elapsed_seconds": 39.313,
+  "finished_at": "2026-10-29T07:49:38.627117+00:00"
+}

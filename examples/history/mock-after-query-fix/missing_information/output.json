@@ -1,0 +1,12 @@
+{
+  "mode": "mock",
+  "model": "offline-rule-simulator-v1",
+  "evidence_type": "offline_simulation",
+  "status": "needs_clarification",
+  "answer": "请补充要查询的制度、产品或具体问题。",
+  "citations": [],
+  "gaps": [
+    "缺少明确查询对象"
+  ],
+  "conflicts": []
+}

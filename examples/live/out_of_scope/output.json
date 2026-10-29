@@ -1,0 +1,12 @@
+{
+  "mode": "live",
+  "model": "deepseek-flash",
+  "evidence_type": "real_model_run",
+  "status": "insufficient_evidence",
+  "answer": "未检索到关于“火星殖民地氧气配额”的任何资料，因此无法给出配额数值。已尝试多组关键词（火星殖民地/氧气配额、氧气配额标准、火星基地保障规定、氧气供应配额分配），均无命中结果。",
+  "citations": [],
+  "gaps": [
+    "未检索到火星殖民地或氧气配额相关的任何文档，无法确认是否存在此类规定及其具体数值。"
+  ],
+  "conflicts": []
+}

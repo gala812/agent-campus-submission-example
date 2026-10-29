@@ -1,0 +1,12 @@
+{
+  "mode": "mock",
+  "model": "offline-rule-simulator-v1",
+  "evidence_type": "offline_simulation",
+  "status": "incomplete_limit",
+  "answer": "达到模型决策步数上限，任务未完成。",
+  "citations": [],
+  "gaps": [
+    "达到模型决策步数上限，任务未完成。"
+  ],
+  "conflicts": []
+}

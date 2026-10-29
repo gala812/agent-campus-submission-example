@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "run_id": "d4845e43-cf97-45cb-88d8-82069c66f54c",
+  "started_at": "2026-10-29T07:37:58.477202+00:00",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "endpoint_host": "api.deepseek.com",
+  "evidence_type": "real_model_run",
+  "corpus_sha256": "2fdea7015f3d86041d184e4a7717c97eb71b21608a55227c1cf6c6aca0def512",
+  "prompt_sha256": "d68d1b19fcf9f372e3e2914f8e679f34071b778e8c8faa6428ffc035b0298ff6",
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 10
+  },
+  "input": {
+    "question": "火星殖民地的氧气配额是多少？",
+    "history": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "model_step": 1,
+      "timestamp": "2026-10-29T07:38:04.365127+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "火星殖民地 氧气配额",
+        "top_k": 10
+      },
+      "decision_reason": "检索是否存在火星殖民地氧气配额相关制度",
+      "observation": {
+        "ok": true,
+        "query": "火星殖民地 氧气配额",
+        "hits": [],
+        "total_matches": 0,
+        "has_more": false
+      },
+      "observation_summary": "命中0份，返回：",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 2,
+      "model_step": 1,
+      "timestamp": "2026-10-29T07:38:04.365127+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "氧气配额 标准",
+        "top_k": 10
+      },
+      "decision_reason": "扩大关键词范围确认是否有相关配额规定",
+      "observation": {
+        "ok": true,
+        "query": "氧气配额 标准",
+        "hits": [],
+        "total_matches": 0,
+        "has_more": false
+      },
+      "observation_summary": "命中0份，返回：",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 3,
+      "model_step": 2,
+      "timestamp": "2026-10-29T07:38:10.958960+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "火星 殖民地 计划",
+        "top_k": 10
+      },
+      "decision_reason": "确认知识库是否涉及火星或殖民地主题",
+      "observation": {
+        "ok": true,
+        "query": "火星 殖民地 计划",
+        "hits": [],
+        "total_matches": 0,
+        "has_more": false
+      },
+      "observation_summary": "命中0份，返回：",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 4,
+      "model_step": 2,
+      "timestamp": "2026-10-29T07:38:10.958960+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "氧气 供应 管理 规定",
+        "top_k": 10
+      },
+      "decision_reason": "确认是否有氧气供应管理类制度",
+      "observation": {
+        "ok": true,
+        "query": "氧气 供应 管理 规定",
+        "hits": [],
+        "total_matches": 0,
+        "has_more": false
+      },
+      "observation_summary": "命中0份，返回：",
+      "next_action": "finish"
+    },
+    {
+      "step": 5,
+      "model_step": 3,
+      "timestamp": "2026-10-29T07:38:17.365997+00:00",
+      "action": "finish",
+      "arguments": {
+        "status": "insufficient_evidence",
+        "answer": "企业知识库中未检索到任何与“火星殖民地”或“氧气配额”相关的资料（多组关键词检索均为 0 命中），因此无法给出氧气配额数值。该问题可能超出本知识库覆盖范围，建议确认是否属于其他业务领域或提供相关制度名称。",
+        "citations": [],
+        "gaps": [
+          "知识库中不存在火星殖民地相关文档",
+          "知识库中不存在氧气配额/氧气供应管理相关文档，无法提供任何配额数值或依据"
+        ],
+        "conflicts": []
+      },
+      "decision_reason": "多组关键词检索均无命中，无原文可引用",
+      "observation": {
+        "ok": true,
+        "message": "结构与引用溯源校验通过；语义支持性仍需评估"
+      },
+      "observation_summary": "结构与引用溯源校验通过；语义支持性仍需评估",
+      "next_action": "end:insufficient_evidence"
+    }
+  ],
+  "result": {
+    "status": "insufficient_evidence",
+    "answer": "企业知识库中未检索到任何与“火星殖民地”或“氧气配额”相关的资料（多组关键词检索均为 0 命中），因此无法给出氧气配额数值。该问题可能超出本知识库覆盖范围，建议确认是否属于其他业务领域或提供相关制度名称。",
+    "citations": [],
+    "gaps": [
+      "知识库中不存在火星殖民地相关文档",
+      "知识库中不存在氧气配额/氧气供应管理相关文档，无法提供任何配额数值或依据"
+    ],
+    "conflicts": []
+  },
+  "model_calls": 3,
+  "tool_calls": 4,
+  "elapsed_seconds": 18.875,
+  "finished_at": "2026-10-29T07:38:17.365997+00:00"
+}

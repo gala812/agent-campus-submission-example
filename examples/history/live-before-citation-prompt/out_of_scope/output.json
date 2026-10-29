@@ -1,0 +1,13 @@
+{
+  "mode": "live",
+  "model": "deepseek-flash",
+  "evidence_type": "real_model_run",
+  "status": "insufficient_evidence",
+  "answer": "企业知识库中未检索到任何与“火星殖民地”或“氧气配额”相关的资料（多组关键词检索均为 0 命中），因此无法给出氧气配额数值。该问题可能超出本知识库覆盖范围，建议确认是否属于其他业务领域或提供相关制度名称。",
+  "citations": [],
+  "gaps": [
+    "知识库中不存在火星殖民地相关文档",
+    "知识库中不存在氧气配额/氧气供应管理相关文档，无法提供任何配额数值或依据"
+  ],
+  "conflicts": []
+}

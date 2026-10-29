@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "run_id": "c37214dc-6784-4dbf-9988-89f23b0af41d",
+  "started_at": "2026-10-29T07:39:38.570612+00:00",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "endpoint_host": "api.deepseek.com",
+  "evidence_type": "real_model_run",
+  "corpus_sha256": "2fdea7015f3d86041d184e4a7717c97eb71b21608a55227c1cf6c6aca0def512",
+  "prompt_sha256": "d68d1b19fcf9f372e3e2914f8e679f34071b778e8c8faa6428ffc035b0298ff6",
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 10
+  },
+  "input": {
+    "question": "它呢？",
+    "history": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "model_step": 1,
+      "timestamp": "2026-10-29T07:39:49.453693+00:00",
+      "action": "finish",
+      "arguments": {
+        "status": "needs_clarification",
+        "answer": "您的问题“它呢？”缺少指代对象，且当前对话没有历史上下文，我无法确定您想查询的是哪项制度、流程或事项。请补充说明具体对象（例如：某类报销标准、某假期天数、某审批流程等），我再为您检索企业知识库中的相关资料。",
+        "citations": [],
+        "gaps": [
+          "问题中的“它”无指代对象，且无对话历史可供推断，无法确定检索主题。"
+        ],
+        "conflicts": []
+      },
+      "decision_reason": "问题指代不明且无历史，需追问具体对象",
+      "observation": {
+        "ok": true,
+        "message": "结构与引用溯源校验通过；语义支持性仍需评估"
+      },
+      "observation_summary": "结构与引用溯源校验通过；语义支持性仍需评估",
+      "next_action": "end:needs_clarification"
+    }
+  ],
+  "result": {
+    "status": "needs_clarification",
+    "answer": "您的问题“它呢？”缺少指代对象，且当前对话没有历史上下文，我无法确定您想查询的是哪项制度、流程或事项。请补充说明具体对象（例如：某类报销标准、某假期天数、某审批流程等），我再为您检索企业知识库中的相关资料。",
+    "citations": [],
+    "gaps": [
+      "问题中的“它”无指代对象，且无对话历史可供推断，无法确定检索主题。"
+    ],
+    "conflicts": []
+  },
+  "model_calls": 1,
+  "tool_calls": 0,
+  "elapsed_seconds": 10.875,
+  "finished_at": "2026-10-29T07:39:49.453693+00:00"
+}

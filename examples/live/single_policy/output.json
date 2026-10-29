@@ -1,0 +1,16 @@
+{
+  "mode": "live",
+  "model": "deepseek-flash",
+  "evidence_type": "real_model_run",
+  "status": "answered",
+  "answer": "根据《费用报销制度A》，报销申请应在费用发生后30天内提交。[D01]\n\n需注意：该制度未注明适用部门、优先级或与其他制度的替代关系，因此上述期限是否适用于你所在部门尚无法确认。",
+  "citations": [
+    {
+      "doc_id": "D01",
+      "version_date": "2026-01-10",
+      "quote": "报销申请应在费用发生后30天内提交。\n本资料未注明适用部门、优先级或与其他制度的替代关系。"
+    }
+  ],
+  "gaps": [],
+  "conflicts": []
+}

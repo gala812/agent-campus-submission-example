@@ -1,0 +1,18 @@
+{
+  "mode": "mock",
+  "model": "offline-rule-simulator-v1",
+  "evidence_type": "offline_simulation",
+  "status": "insufficient_evidence",
+  "answer": "已读取的产品资料未提供所询问的效果数据。",
+  "citations": [
+    {
+      "doc_id": "P01",
+      "version_date": "2026-05-08",
+      "quote": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。"
+    }
+  ],
+  "gaps": [
+    "缺少效果指标的实测资料"
+  ],
+  "conflicts": []
+}

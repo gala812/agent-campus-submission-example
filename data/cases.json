@@ -1,0 +1,234 @@
+[
+  {
+    "id": "normal",
+    "description": "明确的产品能力问题",
+    "input": {
+      "question": "星剪支持自动生成字幕吗？"
+    },
+    "expected": {
+      "statuses": [
+        "answered"
+      ],
+      "citations": [
+        "P01"
+      ],
+      "answer_contains": [
+        "字幕"
+      ],
+      "actions": [
+        "search_documents",
+        "read_document",
+        "finish"
+      ]
+    }
+  },
+  {
+    "id": "conflict",
+    "description": "30天与15天冲突且没有优先级",
+    "input": {
+      "question": "报销期限是多久？"
+    },
+    "expected": {
+      "statuses": [
+        "needs_clarification"
+      ],
+      "citations": [
+        "D01",
+        "D02"
+      ],
+      "conflict": true
+    }
+  },
+  {
+    "id": "out_of_scope",
+    "description": "知识库外的问题",
+    "input": {
+      "question": "火星殖民地的氧气配额是多少？"
+    },
+    "expected": {
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "actions": [
+        "search_documents",
+        "finish"
+      ]
+    }
+  },
+  {
+    "id": "paraphrase",
+    "description": "未出现字幕关键词的相似问法",
+    "input": {
+      "question": "能把人声变成屏幕上的文字吗？"
+    },
+    "expected": {
+      "statuses": [
+        "answered"
+      ],
+      "citations": [
+        "P01"
+      ],
+      "answer_contains": [
+        "字幕"
+      ]
+    }
+  },
+  {
+    "id": "followup",
+    "description": "历史用于指代消解，事实重新读取",
+    "input": {
+      "question": "那它能导出什么格式？",
+      "history": [
+        {
+          "role": "user",
+          "content": "星剪支持字幕吗？"
+        },
+        {
+          "role": "assistant",
+          "content": "支持自动生成中文字幕。"
+        }
+      ]
+    },
+    "expected": {
+      "statuses": [
+        "answered"
+      ],
+      "citations": [
+        "P01"
+      ],
+      "answer_contains": [
+        "SRT",
+        "MP4"
+      ],
+      "actions": [
+        "read_document"
+      ]
+    }
+  },
+  {
+    "id": "tool_failure_recovery",
+    "description": "首次读取失败后恢复，保留检索结果",
+    "failure": "read_once",
+    "input": {
+      "question": "星剪支持自动生成字幕吗？"
+    },
+    "expected": {
+      "statuses": [
+        "answered"
+      ],
+      "citations": [
+        "P01"
+      ],
+      "tool_failure": true,
+      "preserve_search": true
+    }
+  },
+  {
+    "id": "tool_failure_stop",
+    "description": "持续检索失败应明确停止",
+    "failure": "search_always",
+    "input": {
+      "question": "星剪支持自动生成字幕吗？"
+    },
+    "expected": {
+      "statuses": [
+        "tool_error"
+      ],
+      "tool_failure": true
+    }
+  },
+  {
+    "id": "missing_information",
+    "description": "缺少指代对象且没有历史",
+    "input": {
+      "question": "它呢？"
+    },
+    "expected": {
+      "statuses": [
+        "needs_clarification"
+      ]
+    }
+  },
+  {
+    "id": "partial_evidence",
+    "description": "文档存在但没有效果数据",
+    "input": {
+      "question": "星剪能提升多少效率？"
+    },
+    "expected": {
+      "statuses": [
+        "insufficient_evidence"
+      ],
+      "citations": [
+        "P01"
+      ],
+      "answer_excludes": [
+        "80%"
+      ]
+    }
+  },
+  {
+    "id": "step_limit",
+    "description": "模型决策步数上限",
+    "max_steps": 1,
+    "input": {
+      "question": "星剪支持自动生成字幕吗？"
+    },
+    "expected": {
+      "statuses": [
+        "incomplete_limit"
+      ]
+    }
+  },
+  {
+    "id": "tool_limit",
+    "description": "业务工具调用上限",
+    "max_tools": 1,
+    "input": {
+      "question": "星剪支持自动生成字幕吗？"
+    },
+    "expected": {
+      "statuses": [
+        "incomplete_limit"
+      ]
+    }
+  },
+  {
+    "id": "changed_document",
+    "description": "相同问题但原文内容替换，答案应变化",
+    "data": "data/variants/changed_product.json",
+    "input": {
+      "question": "星剪支持自动生成字幕吗？"
+    },
+    "expected": {
+      "statuses": [
+        "answered"
+      ],
+      "citations": [
+        "P01"
+      ],
+      "answer_contains": [
+        "不支持"
+      ]
+    }
+  },
+  {
+    "id": "single_policy",
+    "description": "仅有单一制度依据，无冲突",
+    "data": "data/variants/single_policy.json",
+    "input": {
+      "question": "报销期限是多久？"
+    },
+    "expected": {
+      "statuses": [
+        "answered"
+      ],
+      "citations": [
+        "D01"
+      ],
+      "answer_contains": [
+        "30"
+      ]
+    }
+  }
+]

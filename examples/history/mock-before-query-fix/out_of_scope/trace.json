@@ -1,0 +1,330 @@
+{
+  "schema_version": 1,
+  "run_id": "79d6af7c-487b-4d1c-a9bc-2697c7cf0ab1",
+  "started_at": "2026-10-29T07:29:55.007925+00:00",
+  "mode": "mock",
+  "model": "offline-rule-simulator-v1",
+  "endpoint_host": null,
+  "evidence_type": "offline_simulation",
+  "corpus_sha256": "2fdea7015f3d86041d184e4a7717c97eb71b21608a55227c1cf6c6aca0def512",
+  "prompt_sha256": "f08e46125d0ddbc9190aea5f51078f77b3d90d3a6c5498de5ca8d10ec7ffd03e",
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 10
+  },
+  "input": {
+    "question": "火星殖民地的氧气配额是多少？",
+    "history": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "timestamp": "2026-10-29T07:29:55.007925+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "火星殖民地的氧气配额是多少？",
+        "top_k": 10
+      },
+      "decision_reason": "先查找与问题相关的资料。",
+      "observation": {
+        "ok": true,
+        "query": "火星殖民地的氧气配额是多少？",
+        "hits": [],
+        "total_matches": 0,
+        "has_more": false
+      },
+      "observation_summary": "命中0份，返回：",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 2,
+      "timestamp": "2026-10-29T07:29:55.007925+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "资料 火星殖民地的氧气配额是多少",
+        "top_k": 30
+      },
+      "decision_reason": "首次检索为空，改写查询并扩大候选数量。",
+      "observation": {
+        "ok": true,
+        "query": "资料 火星殖民地的氧气配额是多少",
+        "hits": [
+          {
+            "doc_id": "D01",
+            "title": "费用报销制度A",
+            "version_date": "2026-01-10",
+            "topics": [
+              "报销期限"
+            ],
+            "score": 0.6931,
+            "snippet": "报销申请应在费用发生后30天内提交。\n本资料未注明适用部门、优先级或与其他制度的替代关系。"
+          },
+          {
+            "doc_id": "D02",
+            "title": "费用报销制度B",
+            "version_date": "2026-04-20",
+            "topics": [
+              "报销期限"
+            ],
+            "score": 0.6931,
+            "snippet": "报销申请应在费用发生后15天内提交。\n本资料未注明适用部门、优先级或与其他制度的替代关系。"
+          },
+          {
+            "doc_id": "H01",
+            "title": "员工请假办理指南",
+            "version_date": "2026-02-16",
+            "topics": [
+              "请假流程"
+            ],
+            "score": 0.6931,
+            "snippet": "员工请假须在OA提交申请，经直属主管审批后生效。\n本资料未给出年假天数或假期额度计算方式。"
+          },
+          {
+            "doc_id": "P01",
+            "title": "星剪产品功能FAQ",
+            "version_date": "2026-05-08",
+            "topics": [
+              "产品能力"
+            ],
+            "score": 0.6931,
+            "snippet": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。\n星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。\n本资料没有提供效率提升、识别准确率或收益的测量数据。"
+          }
+        ],
+        "total_matches": 4,
+        "has_more": false
+      },
+      "observation_summary": "命中4份，返回：D01,D02,H01,P01",
+      "next_action": "read_document"
+    },
+    {
+      "step": 3,
+      "timestamp": "2026-10-29T07:29:55.008926+00:00",
+      "action": "read_document",
+      "arguments": {
+        "doc_id": "D01"
+      },
+      "decision_reason": "读取候选文档原文，核对事实和引用。",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "D01",
+          "title": "费用报销制度A",
+          "version_date": "2026-01-10",
+          "topics": [
+            "报销期限"
+          ],
+          "content": "报销申请应在费用发生后30天内提交。\n本资料未注明适用部门、优先级或与其他制度的替代关系。"
+        }
+      },
+      "observation_summary": "已读取 D01 / 2026-01-10 / 45字符",
+      "next_action": "read_document"
+    },
+    {
+      "step": 4,
+      "timestamp": "2026-10-29T07:29:55.008926+00:00",
+      "action": "read_document",
+      "arguments": {
+        "doc_id": "D02"
+      },
+      "decision_reason": "读取候选文档原文，核对事实和引用。",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "D02",
+          "title": "费用报销制度B",
+          "version_date": "2026-04-20",
+          "topics": [
+            "报销期限"
+          ],
+          "content": "报销申请应在费用发生后15天内提交。\n本资料未注明适用部门、优先级或与其他制度的替代关系。"
+        }
+      },
+      "observation_summary": "已读取 D02 / 2026-04-20 / 45字符",
+      "next_action": "read_document"
+    },
+    {
+      "step": 5,
+      "timestamp": "2026-10-29T07:29:55.008926+00:00",
+      "action": "read_document",
+      "arguments": {
+        "doc_id": "H01"
+      },
+      "decision_reason": "读取候选文档原文，核对事实和引用。",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "H01",
+          "title": "员工请假办理指南",
+          "version_date": "2026-02-16",
+          "topics": [
+            "请假流程"
+          ],
+          "content": "员工请假须在OA提交申请，经直属主管审批后生效。\n本资料未给出年假天数或假期额度计算方式。"
+        }
+      },
+      "observation_summary": "已读取 H01 / 2026-02-16 / 45字符",
+      "next_action": "read_document"
+    },
+    {
+      "step": 6,
+      "timestamp": "2026-10-29T07:29:55.008926+00:00",
+      "action": "read_document",
+      "arguments": {
+        "doc_id": "P01"
+      },
+      "decision_reason": "读取候选文档原文，核对事实和引用。",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "P01",
+          "title": "星剪产品功能FAQ",
+          "version_date": "2026-05-08",
+          "topics": [
+            "产品能力"
+          ],
+          "content": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。\n星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。\n本资料没有提供效率提升、识别准确率或收益的测量数据。"
+        }
+      },
+      "observation_summary": "已读取 P01 / 2026-05-08 / 82字符",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 7,
+      "timestamp": "2026-10-29T07:29:55.008926+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "报销制度 适用范围 优先级",
+        "top_k": 30
+      },
+      "decision_reason": "发现期限不一致，补查适用范围和制度优先级。",
+      "observation": {
+        "ok": true,
+        "query": "报销制度 适用范围 优先级",
+        "hits": [
+          {
+            "doc_id": "D01",
+            "title": "费用报销制度A",
+            "version_date": "2026-01-10",
+            "topics": [
+              "报销期限"
+            ],
+            "score": 5.885,
+            "snippet": "报销申请应在费用发生后30天内提交。\n本资料未注明适用部门、优先级或与其他制度的替代关系。"
+          },
+          {
+            "doc_id": "D02",
+            "title": "费用报销制度B",
+            "version_date": "2026-04-20",
+            "topics": [
+              "报销期限"
+            ],
+            "score": 5.885,
+            "snippet": "报销申请应在费用发生后15天内提交。\n本资料未注明适用部门、优先级或与其他制度的替代关系。"
+          }
+        ],
+        "total_matches": 2,
+        "has_more": false
+      },
+      "observation_summary": "命中2份，返回：D01,D02",
+      "next_action": "finish"
+    },
+    {
+      "step": 8,
+      "timestamp": "2026-10-29T07:29:55.008926+00:00",
+      "action": "finish",
+      "arguments": {
+        "status": "needs_clarification",
+        "answer": "资料存在冲突：D01：报销申请应在费用发生后30天内提交。；D02：报销申请应在费用发生后15天内提交。；H01：员工请假须在OA提交申请，经直属主管审批后生效。；P01：星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。。未找到适用范围或优先级，请确认应适用哪份制度。",
+        "citations": [
+          {
+            "doc_id": "D01",
+            "version_date": "2026-01-10",
+            "quote": "报销申请应在费用发生后30天内提交。"
+          },
+          {
+            "doc_id": "D02",
+            "version_date": "2026-04-20",
+            "quote": "报销申请应在费用发生后15天内提交。"
+          },
+          {
+            "doc_id": "H01",
+            "version_date": "2026-02-16",
+            "quote": "员工请假须在OA提交申请，经直属主管审批后生效。"
+          },
+          {
+            "doc_id": "P01",
+            "version_date": "2026-05-08",
+            "quote": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。"
+          }
+        ],
+        "gaps": [
+          "缺少适用范围与制度优先级"
+        ],
+        "conflicts": [
+          {
+            "topic": "报销期限",
+            "doc_ids": [
+              "D01",
+              "D02",
+              "H01",
+              "P01"
+            ],
+            "description": "不同文档给出的天数不一致"
+          }
+        ]
+      },
+      "decision_reason": "离线模拟器根据已返回的工具结果输出；不代表真实模型决策。",
+      "observation": {
+        "ok": true,
+        "message": "结构与引用溯源校验通过；语义支持性仍需评估"
+      },
+      "observation_summary": "结构与引用溯源校验通过；语义支持性仍需评估",
+      "next_action": "end:needs_clarification"
+    }
+  ],
+  "result": {
+    "status": "needs_clarification",
+    "answer": "资料存在冲突：D01：报销申请应在费用发生后30天内提交。；D02：报销申请应在费用发生后15天内提交。；H01：员工请假须在OA提交申请，经直属主管审批后生效。；P01：星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。。未找到适用范围或优先级，请确认应适用哪份制度。",
+    "citations": [
+      {
+        "doc_id": "D01",
+        "version_date": "2026-01-10",
+        "quote": "报销申请应在费用发生后30天内提交。"
+      },
+      {
+        "doc_id": "D02",
+        "version_date": "2026-04-20",
+        "quote": "报销申请应在费用发生后15天内提交。"
+      },
+      {
+        "doc_id": "H01",
+        "version_date": "2026-02-16",
+        "quote": "员工请假须在OA提交申请，经直属主管审批后生效。"
+      },
+      {
+        "doc_id": "P01",
+        "version_date": "2026-05-08",
+        "quote": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。"
+      }
+    ],
+    "gaps": [
+      "缺少适用范围与制度优先级"
+    ],
+    "conflicts": [
+      {
+        "topic": "报销期限",
+        "doc_ids": [
+          "D01",
+          "D02",
+          "H01",
+          "P01"
+        ],
+        "description": "不同文档给出的天数不一致"
+      }
+    ]
+  },
+  "model_calls": 8,
+  "tool_calls": 7,
+  "elapsed_seconds": 0.0,
+  "finished_at": "2026-10-29T07:29:55.009926+00:00"
+}

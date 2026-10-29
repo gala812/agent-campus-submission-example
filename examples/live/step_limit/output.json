@@ -1,0 +1,12 @@
+{
+  "mode": "live",
+  "model": "deepseek-flash",
+  "evidence_type": "real_model_run",
+  "status": "incomplete_limit",
+  "answer": "达到模型决策步数上限，任务未完成。",
+  "citations": [],
+  "gaps": [
+    "达到模型决策步数上限，任务未完成。"
+  ],
+  "conflicts": []
+}

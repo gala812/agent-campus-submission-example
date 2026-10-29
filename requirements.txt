@@ -1,0 +1,2 @@
+# No third-party runtime or test dependencies. Uses the Python standard library.
+# Supported: Python 3.8+; Python 3.11+ recommended for new environments.

@@ -1,0 +1,16 @@
+{
+  "mode": "live",
+  "model": "deepseek-flash",
+  "evidence_type": "real_model_run",
+  "status": "answered",
+  "answer": "星剪的字幕可导出为 SRT 文件；视频导出支持 MP4 格式。[P01]",
+  "citations": [
+    {
+      "doc_id": "P01",
+      "version_date": "2026-05-08",
+      "quote": "星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。"
+    }
+  ],
+  "gaps": [],
+  "conflicts": []
+}

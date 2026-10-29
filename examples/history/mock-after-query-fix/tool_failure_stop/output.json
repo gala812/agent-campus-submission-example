@@ -1,0 +1,12 @@
+{
+  "mode": "mock",
+  "model": "offline-rule-simulator-v1",
+  "evidence_type": "offline_simulation",
+  "status": "tool_error",
+  "answer": "工具连续失败，当前无法核实答案。",
+  "citations": [],
+  "gaps": [
+    "需要恢复工具后重新查询"
+  ],
+  "conflicts": []
+}

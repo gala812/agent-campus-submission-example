@@ -1,0 +1,13 @@
+{
+  "question": "那它能导出什么格式？",
+  "history": [
+    {
+      "role": "user",
+      "content": "星剪支持字幕吗？"
+    },
+    {
+      "role": "assistant",
+      "content": "支持自动生成中文字幕。"
+    }
+  ]
+}

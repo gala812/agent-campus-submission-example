@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "run_id": "77d4aed1-3ac0-4792-925c-f468b26c666b",
+  "started_at": "2026-10-29T07:49:38.632116+00:00",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "endpoint_host": "api.deepseek.com",
+  "evidence_type": "real_model_run",
+  "corpus_sha256": "2fdea7015f3d86041d184e4a7717c97eb71b21608a55227c1cf6c6aca0def512",
+  "prompt_sha256": "bce43a9d28b8f2bee77a068703f6417144c82e6e1870413b1815d63ae6327870",
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 10
+  },
+  "input": {
+    "question": "它呢？",
+    "history": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "model_step": 1,
+      "timestamp": "2026-10-29T07:49:44.868154+00:00",
+      "action": "finish",
+      "arguments": {
+        "status": "needs_clarification",
+        "answer": "您的问题“它呢？”缺少指代对象，且当前对话没有历史内容可供判断。请说明您想了解的具体对象或事项（例如某项制度、流程、期限或某份文件），我再为您检索企业知识库。",
+        "citations": [],
+        "gaps": [
+          "问题未指明具体对象，且无对话历史可推断指代，无法确定检索范围。"
+        ],
+        "conflicts": []
+      },
+      "decision_reason": "问题指代不明且无历史，需先确认对象",
+      "observation": {
+        "ok": true,
+        "message": "结构与引用溯源校验通过；语义支持性仍需评估"
+      },
+      "observation_summary": "结构与引用溯源校验通过；语义支持性仍需评估",
+      "next_action": "end:needs_clarification"
+    }
+  ],
+  "result": {
+    "status": "needs_clarification",
+    "answer": "您的问题“它呢？”缺少指代对象，且当前对话没有历史内容可供判断。请说明您想了解的具体对象或事项（例如某项制度、流程、期限或某份文件），我再为您检索企业知识库。",
+    "citations": [],
+    "gaps": [
+      "问题未指明具体对象，且无对话历史可推断指代，无法确定检索范围。"
+    ],
+    "conflicts": []
+  },
+  "model_calls": 1,
+  "tool_calls": 0,
+  "elapsed_seconds": 6.235,
+  "finished_at": "2026-10-29T07:49:44.868154+00:00"
+}

@@ -1,0 +1,12 @@
+{
+  "mode": "live",
+  "model": "deepseek-flash",
+  "evidence_type": "real_model_run",
+  "status": "needs_clarification",
+  "answer": "您的问题“它呢？”缺少指代对象，且当前对话没有历史上下文，我无法确定您想查询的是哪项制度、流程或事项。请补充说明具体对象（例如：某类报销标准、某假期天数、某审批流程等），我再为您检索企业知识库中的相关资料。",
+  "citations": [],
+  "gaps": [
+    "问题中的“它”无指代对象，且无对话历史可供推断，无法确定检索主题。"
+  ],
+  "conflicts": []
+}

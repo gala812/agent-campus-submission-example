@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "run_id": "804b7196-b148-40f8-9985-d85612c9a680",
+  "started_at": "2026-10-29T07:40:57.782935+00:00",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "endpoint_host": "api.deepseek.com",
+  "evidence_type": "real_model_run",
+  "corpus_sha256": "02d7052025eb952bdb22b9004a43da9cfee1ace773621f01bcb19bbce1e66c36",
+  "prompt_sha256": "d68d1b19fcf9f372e3e2914f8e679f34071b778e8c8faa6428ffc035b0298ff6",
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 10
+  },
+  "input": {
+    "question": "报销期限是多久？",
+    "history": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "model_step": 1,
+      "timestamp": "2026-10-29T07:41:03.457958+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "报销期限",
+        "top_k": 10
+      },
+      "decision_reason": "检索报销期限相关制度",
+      "observation": {
+        "ok": true,
+        "query": "报销期限",
+        "hits": [
+          {
+            "doc_id": "D01",
+            "title": "费用报销制度A",
+            "version_date": "2026-01-10",
+            "topics": [
+              "报销期限"
+            ],
+            "score": 3.2958,
+            "snippet": "报销申请应在费用发生后30天内提交。\n本资料未注明适用部门、优先级或与其他制度的替代关系。"
+          }
+        ],
+        "total_matches": 1,
+        "has_more": false
+      },
+      "observation_summary": "命中1份，返回：D01",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 2,
+      "model_step": 2,
+      "timestamp": "2026-10-29T07:41:09.062554+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "费用报销 提交时限 天数",
+        "top_k": 20
+      },
+      "decision_reason": "补查是否存在其他报销时限制度",
+      "observation": {
+        "ok": true,
+        "query": "费用报销 提交时限 天数",
+        "hits": [
+          {
+            "doc_id": "D01",
+            "title": "费用报销制度A",
+            "version_date": "2026-01-10",
+            "topics": [
+              "报销期限"
+            ],
+            "score": 4.1431,
+            "snippet": "报销申请应在费用发生后30天内提交。\n本资料未注明适用部门、优先级或与其他制度的替代关系。"
+          },
+          {
+            "doc_id": "H01",
+            "title": "员工请假办理指南",
+            "version_date": "2026-02-16",
+            "topics": [
+              "请假流程"
+            ],
+            "score": 1.9459,
+            "snippet": "员工请假须在OA提交申请，经直属主管审批后生效。\n本资料未给出年假天数或假期额度计算方式。"
+          }
+        ],
+        "total_matches": 2,
+        "has_more": false
+      },
+      "observation_summary": "命中2份，返回：D01,H01",
+      "next_action": "read_document"
+    },
+    {
+      "step": 3,
+      "model_step": 3,
+      "timestamp": "2026-10-29T07:41:14.486397+00:00",
+      "action": "read_document",
+      "arguments": {
+        "doc_id": "D01"
+      },
+      "decision_reason": "读取报销期限原文以引用",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "D01",
+          "title": "费用报销制度A",
+          "version_date": "2026-01-10",
+          "topics": [
+            "报销期限"
+          ],
+          "content": "报销申请应在费用发生后30天内提交。\n本资料未注明适用部门、优先级或与其他制度的替代关系。"
+        }
+      },
+      "observation_summary": "已读取 D01 / 2026-01-10 / 45字符",
+      "next_action": "finish"
+    },
+    {
+      "step": 4,
+      "model_step": 4,
+      "timestamp": "2026-10-29T07:41:20.591524+00:00",
+      "action": "finish",
+      "arguments": {
+        "status": "answered",
+        "answer": "根据《费用报销制度A》，报销申请应在费用发生后30天内提交[D01]。该制度未注明适用部门、优先级或与其他制度的替代关系，如需确认是否适用于特定部门或是否存在其他并行规定，建议进一步向财务部门核实。",
+        "citations": [
+          {
+            "doc_id": "D01",
+            "version_date": "2026-01-10",
+            "quote": "报销申请应在费用发生后30天内提交。"
+          }
+        ],
+        "gaps": [],
+        "conflicts": []
+      },
+      "decision_reason": "仅检索到一份报销期限制度并已读取原文",
+      "observation": {
+        "ok": true,
+        "message": "结构与引用溯源校验通过；语义支持性仍需评估"
+      },
+      "observation_summary": "结构与引用溯源校验通过；语义支持性仍需评估",
+      "next_action": "end:answered"
+    }
+  ],
+  "result": {
+    "status": "answered",
+    "answer": "根据《费用报销制度A》，报销申请应在费用发生后30天内提交[D01]。该制度未注明适用部门、优先级或与其他制度的替代关系，如需确认是否适用于特定部门或是否存在其他并行规定，建议进一步向财务部门核实。",
+    "citations": [
+      {
+        "doc_id": "D01",
+        "version_date": "2026-01-10",
+        "quote": "报销申请应在费用发生后30天内提交。"
+      }
+    ],
+    "gaps": [],
+    "conflicts": []
+  },
+  "model_calls": 4,
+  "tool_calls": 3,
+  "elapsed_seconds": 22.812,
+  "finished_at": "2026-10-29T07:41:20.591524+00:00"
+}

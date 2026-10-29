@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "run_id": "2ca23f3d-b903-43a8-8784-27e85bea112c",
+  "started_at": "2026-10-29T07:29:55.150173+00:00",
+  "mode": "mock",
+  "model": "offline-rule-simulator-v1",
+  "endpoint_host": null,
+  "evidence_type": "offline_simulation",
+  "corpus_sha256": "2fdea7015f3d86041d184e4a7717c97eb71b21608a55227c1cf6c6aca0def512",
+  "prompt_sha256": "f08e46125d0ddbc9190aea5f51078f77b3d90d3a6c5498de5ca8d10ec7ffd03e",
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 10
+  },
+  "input": {
+    "question": "星剪支持自动生成字幕吗？",
+    "history": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "timestamp": "2026-10-29T07:29:55.150173+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "星剪支持自动生成字幕吗？",
+        "top_k": 10
+      },
+      "decision_reason": "先查找与问题相关的资料。",
+      "observation": {
+        "ok": false,
+        "error": {
+          "code": "injected_tool_failure",
+          "message": "合成故障：工具暂时不可用",
+          "retryable": true
+        }
+      },
+      "observation_summary": "injected_tool_failure: 合成故障：工具暂时不可用",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 2,
+      "timestamp": "2026-10-29T07:29:55.151171+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "星剪支持自动生成字幕吗？",
+        "top_k": 10
+      },
+      "decision_reason": "上次工具返回可恢复错误，选择重试一次。",
+      "observation": {
+        "ok": false,
+        "error": {
+          "code": "injected_tool_failure",
+          "message": "合成故障：工具暂时不可用",
+          "retryable": true
+        }
+      },
+      "observation_summary": "injected_tool_failure: 合成故障：工具暂时不可用",
+      "next_action": "finish"
+    },
+    {
+      "step": 3,
+      "timestamp": "2026-10-29T07:29:55.151171+00:00",
+      "action": "finish",
+      "arguments": {
+        "status": "tool_error",
+        "answer": "工具连续失败，当前无法核实答案。",
+        "citations": [],
+        "gaps": [
+          "需要恢复工具后重新查询"
+        ],
+        "conflicts": []
+      },
+      "decision_reason": "离线模拟器根据已返回的工具结果输出；不代表真实模型决策。",
+      "observation": {
+        "ok": true,
+        "message": "结构与引用溯源校验通过；语义支持性仍需评估"
+      },
+      "observation_summary": "结构与引用溯源校验通过；语义支持性仍需评估",
+      "next_action": "end:tool_error"
+    }
+  ],
+  "result": {
+    "status": "tool_error",
+    "answer": "工具连续失败，当前无法核实答案。",
+    "citations": [],
+    "gaps": [
+      "需要恢复工具后重新查询"
+    ],
+    "conflicts": []
+  },
+  "model_calls": 3,
+  "tool_calls": 2,
+  "elapsed_seconds": 0.0,
+  "finished_at": "2026-10-29T07:29:55.151171+00:00"
+}

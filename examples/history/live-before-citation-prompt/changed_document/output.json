@@ -1,0 +1,16 @@
+{
+  "mode": "live",
+  "model": "deepseek-flash",
+  "evidence_type": "real_model_run",
+  "status": "answered",
+  "answer": "不支持。根据《星剪产品功能FAQ》，星剪当前版本不支持自动生成字幕，仅支持手动输入和编辑字幕；字幕可导出为SRT文件，视频导出支持MP4格式。[P01]",
+  "citations": [
+    {
+      "doc_id": "P01",
+      "version_date": "2026-06-01",
+      "quote": "星剪当前版本不支持自动生成字幕，仅支持手动输入和编辑字幕。"
+    }
+  ],
+  "gaps": [],
+  "conflicts": []
+}

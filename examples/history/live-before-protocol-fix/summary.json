@@ -1,0 +1,72 @@
+{
+  "mode": "live",
+  "evidence_type": "real_model_run",
+  "model": "deepseek-flash",
+  "total": 2,
+  "passed": 1,
+  "cases": [
+    {
+      "case_id": "normal",
+      "description": "明确的产品能力问题",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "required_citations": true,
+        "answer_terms": true,
+        "forbidden_answer_terms": true,
+        "required_actions": true,
+        "call_limits": true,
+        "citation_provenance": true
+      },
+      "actual_status": "answered",
+      "expected": {
+        "statuses": [
+          "answered"
+        ],
+        "citations": [
+          "P01"
+        ],
+        "answer_contains": [
+          "字幕"
+        ],
+        "actions": [
+          "search_documents",
+          "read_document",
+          "finish"
+        ]
+      },
+      "trace": "normal/trace.json",
+      "model_calls": 3
+    },
+    {
+      "case_id": "conflict",
+      "description": "30天与15天冲突且没有优先级",
+      "passed": false,
+      "checks": {
+        "status": true,
+        "required_citations": true,
+        "answer_terms": true,
+        "forbidden_answer_terms": true,
+        "required_actions": true,
+        "call_limits": true,
+        "citation_provenance": true,
+        "conflict_reported": true,
+        "search_after_conflicting_reads": false
+      },
+      "actual_status": "needs_clarification",
+      "expected": {
+        "statuses": [
+          "needs_clarification"
+        ],
+        "citations": [
+          "D01",
+          "D02"
+        ],
+        "conflict": true
+      },
+      "trace": "conflict/trace.json",
+      "model_calls": 10
+    }
+  ],
+  "semantic_review": "自动断言仅覆盖指定事实与状态；仍需人工核对每条回答是否被引用支持"
+}

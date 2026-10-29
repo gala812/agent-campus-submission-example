@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "run_id": "01e8316b-d080-4042-a5c7-111c880879b7",
+  "started_at": "2026-10-29T07:30:37.935551+00:00",
+  "mode": "mock",
+  "model": "offline-rule-simulator-v1",
+  "endpoint_host": null,
+  "evidence_type": "offline_simulation",
+  "corpus_sha256": "2fdea7015f3d86041d184e4a7717c97eb71b21608a55227c1cf6c6aca0def512",
+  "prompt_sha256": "f08e46125d0ddbc9190aea5f51078f77b3d90d3a6c5498de5ca8d10ec7ffd03e",
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 10
+  },
+  "input": {
+    "question": "火星殖民地的氧气配额是多少？",
+    "history": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "timestamp": "2026-10-29T07:30:37.935551+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "火星殖民地的氧气配额是多少？",
+        "top_k": 10
+      },
+      "decision_reason": "先查找与问题相关的资料。",
+      "observation": {
+        "ok": true,
+        "query": "火星殖民地的氧气配额是多少？",
+        "hits": [],
+        "total_matches": 0,
+        "has_more": false
+      },
+      "observation_summary": "命中0份，返回：",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 2,
+      "timestamp": "2026-10-29T07:30:37.935551+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "火星殖民地的氧气配额",
+        "top_k": 30
+      },
+      "decision_reason": "首次检索为空，改写查询并扩大候选数量。",
+      "observation": {
+        "ok": true,
+        "query": "火星殖民地的氧气配额",
+        "hits": [],
+        "total_matches": 0,
+        "has_more": false
+      },
+      "observation_summary": "命中0份，返回：",
+      "next_action": "finish"
+    },
+    {
+      "step": 3,
+      "timestamp": "2026-10-29T07:30:37.935551+00:00",
+      "action": "finish",
+      "arguments": {
+        "status": "insufficient_evidence",
+        "answer": "当前知识库未检索到支持该问题的资料，无法给出可靠答案。",
+        "citations": [],
+        "gaps": [
+          "需要补充与问题相关的制度或产品文档"
+        ],
+        "conflicts": []
+      },
+      "decision_reason": "离线模拟器根据已返回的工具结果输出；不代表真实模型决策。",
+      "observation": {
+        "ok": true,
+        "message": "结构与引用溯源校验通过；语义支持性仍需评估"
+      },
+      "observation_summary": "结构与引用溯源校验通过；语义支持性仍需评估",
+      "next_action": "end:insufficient_evidence"
+    }
+  ],
+  "result": {
+    "status": "insufficient_evidence",
+    "answer": "当前知识库未检索到支持该问题的资料，无法给出可靠答案。",
+    "citations": [],
+    "gaps": [
+      "需要补充与问题相关的制度或产品文档"
+    ],
+    "conflicts": []
+  },
+  "model_calls": 3,
+  "tool_calls": 2,
+  "elapsed_seconds": 0.0,
+  "finished_at": "2026-10-29T07:30:37.935551+00:00"
+}

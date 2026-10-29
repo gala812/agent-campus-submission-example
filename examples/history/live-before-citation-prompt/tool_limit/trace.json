@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "run_id": "553a0c3a-e20b-453c-a32e-7c4a63deb20e",
+  "started_at": "2026-10-29T07:40:23.782263+00:00",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "endpoint_host": "api.deepseek.com",
+  "evidence_type": "real_model_run",
+  "corpus_sha256": "2fdea7015f3d86041d184e4a7717c97eb71b21608a55227c1cf6c6aca0def512",
+  "prompt_sha256": "d68d1b19fcf9f372e3e2914f8e679f34071b778e8c8faa6428ffc035b0298ff6",
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 1
+  },
+  "input": {
+    "question": "星剪支持自动生成字幕吗？",
+    "history": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "model_step": 1,
+      "timestamp": "2026-10-29T07:40:34.899421+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "星剪 自动生成字幕",
+        "top_k": 10
+      },
+      "decision_reason": "检索星剪字幕功能相关资料",
+      "observation": {
+        "ok": true,
+        "query": "星剪 自动生成字幕",
+        "hits": [
+          {
+            "doc_id": "P01",
+            "title": "星剪产品功能FAQ",
+            "version_date": "2026-05-08",
+            "topics": [
+              "产品能力"
+            ],
+            "score": 6.2638,
+            "snippet": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。\n星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。\n本资料没有提供效率提升、识别准确率或收益的测量数据。"
+          }
+        ],
+        "total_matches": 1,
+        "has_more": false
+      },
+      "observation_summary": "命中1份，返回：P01",
+      "next_action": "read_document"
+    },
+    {
+      "step": 2,
+      "model_step": 2,
+      "timestamp": "2026-10-29T07:40:40.236234+00:00",
+      "action": "read_document",
+      "arguments": {
+        "doc_id": "P01"
+      },
+      "decision_reason": "读取FAQ原文以准确引用字幕能力",
+      "observation": {
+        "ok": false,
+        "error": {
+          "code": "tool_limit",
+          "message": "已达到工具调用上限，未执行该动作及本轮后续动作",
+          "retryable": false
+        }
+      },
+      "observation_summary": "tool_limit: 已达到工具调用上限，未执行该动作及本轮后续动作",
+      "next_action": "end:incomplete_limit"
+    }
+  ],
+  "result": {
+    "status": "incomplete_limit",
+    "answer": "达到工具调用上限，任务未完成。",
+    "citations": [],
+    "gaps": [
+      "达到工具调用上限，任务未完成。"
+    ],
+    "conflicts": []
+  },
+  "model_calls": 2,
+  "tool_calls": 1,
+  "elapsed_seconds": 16.453,
+  "finished_at": "2026-10-29T07:40:40.236234+00:00"
+}

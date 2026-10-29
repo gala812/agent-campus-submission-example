@@ -1,0 +1,12 @@
+{
+  "mode": "mock",
+  "model": "offline-rule-simulator-v1",
+  "evidence_type": "offline_simulation",
+  "status": "insufficient_evidence",
+  "answer": "当前知识库未检索到支持该问题的资料，无法给出可靠答案。",
+  "citations": [],
+  "gaps": [
+    "需要补充与问题相关的制度或产品文档"
+  ],
+  "conflicts": []
+}

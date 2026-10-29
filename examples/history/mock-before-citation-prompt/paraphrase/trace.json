@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "run_id": "d5f1f306-e6c7-48bd-a400-24878e22bbb6",
+  "started_at": "2026-10-29T07:37:48.536847+00:00",
+  "mode": "mock",
+  "model": "offline-rule-simulator-v1",
+  "endpoint_host": null,
+  "evidence_type": "offline_simulation",
+  "corpus_sha256": "2fdea7015f3d86041d184e4a7717c97eb71b21608a55227c1cf6c6aca0def512",
+  "prompt_sha256": "d68d1b19fcf9f372e3e2914f8e679f34071b778e8c8faa6428ffc035b0298ff6",
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 10
+  },
+  "input": {
+    "question": "能把人声变成屏幕上的文字吗？",
+    "history": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "model_step": 1,
+      "timestamp": "2026-10-29T07:37:48.536847+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "能把人声变成屏幕上的文字吗？",
+        "top_k": 10
+      },
+      "decision_reason": "先查找与问题相关的资料。",
+      "observation": {
+        "ok": true,
+        "query": "能把人声变成屏幕上的文字吗？",
+        "hits": [
+          {
+            "doc_id": "P01",
+            "title": "星剪产品功能FAQ",
+            "version_date": "2026-05-08",
+            "topics": [
+              "产品能力"
+            ],
+            "score": 2.5055,
+            "snippet": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。\n星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。\n本资料没有提供效率提升、识别准确率或收益的测量数据。"
+          }
+        ],
+        "total_matches": 1,
+        "has_more": false
+      },
+      "observation_summary": "命中1份，返回：P01",
+      "next_action": "read_document"
+    },
+    {
+      "step": 2,
+      "model_step": 2,
+      "timestamp": "2026-10-29T07:37:48.537360+00:00",
+      "action": "read_document",
+      "arguments": {
+        "doc_id": "P01"
+      },
+      "decision_reason": "读取候选文档原文，核对事实和引用。",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "P01",
+          "title": "星剪产品功能FAQ",
+          "version_date": "2026-05-08",
+          "topics": [
+            "产品能力"
+          ],
+          "content": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。\n星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。\n本资料没有提供效率提升、识别准确率或收益的测量数据。"
+        }
+      },
+      "observation_summary": "已读取 P01 / 2026-05-08 / 82字符",
+      "next_action": "finish"
+    },
+    {
+      "step": 3,
+      "model_step": 3,
+      "timestamp": "2026-10-29T07:37:48.537514+00:00",
+      "action": "finish",
+      "arguments": {
+        "status": "answered",
+        "answer": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。 [P01]",
+        "citations": [
+          {
+            "doc_id": "P01",
+            "version_date": "2026-05-08",
+            "quote": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。"
+          }
+        ],
+        "gaps": [],
+        "conflicts": []
+      },
+      "decision_reason": "离线模拟器根据已返回的工具结果输出；不代表真实模型决策。",
+      "observation": {
+        "ok": true,
+        "message": "结构与引用溯源校验通过；语义支持性仍需评估"
+      },
+      "observation_summary": "结构与引用溯源校验通过；语义支持性仍需评估",
+      "next_action": "end:answered"
+    }
+  ],
+  "result": {
+    "status": "answered",
+    "answer": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。 [P01]",
+    "citations": [
+      {
+        "doc_id": "P01",
+        "version_date": "2026-05-08",
+        "quote": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。"
+      }
+    ],
+    "gaps": [],
+    "conflicts": []
+  },
+  "model_calls": 3,
+  "tool_calls": 2,
+  "elapsed_seconds": 0.0,
+  "finished_at": "2026-10-29T07:37:48.537514+00:00"
+}

@@ -1,0 +1,16 @@
+{
+  "mode": "mock",
+  "model": "offline-rule-simulator-v1",
+  "evidence_type": "offline_simulation",
+  "status": "answered",
+  "answer": "报销申请应在费用发生后30天内提交。 [D01]",
+  "citations": [
+    {
+      "doc_id": "D01",
+      "version_date": "2026-01-10",
+      "quote": "报销申请应在费用发生后30天内提交。"
+    }
+  ],
+  "gaps": [],
+  "conflicts": []
+}

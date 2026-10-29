@@ -1,0 +1,136 @@
+{
+  "description": "固定开发集上的检索对照，非真实模型测评；同义词表按这些开发用例调整，有过拟合风险。",
+  "variants": {
+    "without_aliases": {
+      "mean_recall_at_3": 0.5,
+      "cases": [
+        {
+          "query": "报销期限",
+          "relevant": [
+            "D01",
+            "D02"
+          ],
+          "retrieved": [
+            "D01",
+            "D02"
+          ],
+          "recall_at_3": 1.0
+        },
+        {
+          "query": "星剪字幕",
+          "relevant": [
+            "P01"
+          ],
+          "retrieved": [
+            "P01"
+          ],
+          "recall_at_3": 1.0
+        },
+        {
+          "query": "报账最迟啥时候办",
+          "relevant": [
+            "D01",
+            "D02"
+          ],
+          "retrieved": [],
+          "recall_at_3": 0.0
+        },
+        {
+          "query": "能把人声变成屏幕上的文字吗",
+          "relevant": [
+            "P01"
+          ],
+          "retrieved": [
+            "P01"
+          ],
+          "recall_at_3": 1.0
+        },
+        {
+          "query": "口令忘了怎么办",
+          "relevant": [
+            "S01"
+          ],
+          "retrieved": [],
+          "recall_at_3": 0.0
+        },
+        {
+          "query": "休假找谁批",
+          "relevant": [
+            "H01"
+          ],
+          "retrieved": [],
+          "recall_at_3": 0.0
+        }
+      ]
+    },
+    "with_aliases": {
+      "mean_recall_at_3": 1.0,
+      "cases": [
+        {
+          "query": "报销期限",
+          "relevant": [
+            "D01",
+            "D02"
+          ],
+          "retrieved": [
+            "D01",
+            "D02"
+          ],
+          "recall_at_3": 1.0
+        },
+        {
+          "query": "星剪字幕",
+          "relevant": [
+            "P01"
+          ],
+          "retrieved": [
+            "P01"
+          ],
+          "recall_at_3": 1.0
+        },
+        {
+          "query": "报账最迟啥时候办",
+          "relevant": [
+            "D01",
+            "D02"
+          ],
+          "retrieved": [
+            "D01",
+            "D02"
+          ],
+          "recall_at_3": 1.0
+        },
+        {
+          "query": "能把人声变成屏幕上的文字吗",
+          "relevant": [
+            "P01"
+          ],
+          "retrieved": [
+            "P01"
+          ],
+          "recall_at_3": 1.0
+        },
+        {
+          "query": "口令忘了怎么办",
+          "relevant": [
+            "S01"
+          ],
+          "retrieved": [
+            "S01"
+          ],
+          "recall_at_3": 1.0
+        },
+        {
+          "query": "休假找谁批",
+          "relevant": [
+            "H01"
+          ],
+          "retrieved": [
+            "H01"
+          ],
+          "recall_at_3": 1.0
+        }
+      ]
+    }
+  }
+}

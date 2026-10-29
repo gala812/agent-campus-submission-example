@@ -1,0 +1,361 @@
+{
+  "mode": "live",
+  "evidence_type": "real_model_run",
+  "model": "deepseek-flash",
+  "total": 13,
+  "passed": 13,
+  "cases": [
+    {
+      "case_id": "normal",
+      "description": "明确的产品能力问题",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "required_citations": true,
+        "answer_terms": true,
+        "forbidden_answer_terms": true,
+        "required_actions": true,
+        "call_limits": true,
+        "citation_provenance": true
+      },
+      "actual_status": "answered",
+      "expected": {
+        "statuses": [
+          "answered"
+        ],
+        "citations": [
+          "P01"
+        ],
+        "answer_contains": [
+          "字幕"
+        ],
+        "actions": [
+          "search_documents",
+          "read_document",
+          "finish"
+        ]
+      },
+      "trace": "normal/trace.json",
+      "model_calls": 3
+    },
+    {
+      "case_id": "conflict",
+      "description": "30天与15天冲突且没有优先级",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "required_citations": true,
+        "answer_terms": true,
+        "forbidden_answer_terms": true,
+        "required_actions": true,
+        "call_limits": true,
+        "citation_provenance": true,
+        "conflict_reported": true,
+        "search_after_conflicting_reads": true
+      },
+      "actual_status": "needs_clarification",
+      "expected": {
+        "statuses": [
+          "needs_clarification"
+        ],
+        "citations": [
+          "D01",
+          "D02"
+        ],
+        "conflict": true
+      },
+      "trace": "conflict/trace.json",
+      "model_calls": 4
+    },
+    {
+      "case_id": "out_of_scope",
+      "description": "知识库外的问题",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "required_citations": true,
+        "answer_terms": true,
+        "forbidden_answer_terms": true,
+        "required_actions": true,
+        "call_limits": true,
+        "citation_provenance": true
+      },
+      "actual_status": "insufficient_evidence",
+      "expected": {
+        "statuses": [
+          "insufficient_evidence"
+        ],
+        "actions": [
+          "search_documents",
+          "finish"
+        ]
+      },
+      "trace": "out_of_scope/trace.json",
+      "model_calls": 3
+    },
+    {
+      "case_id": "paraphrase",
+      "description": "未出现字幕关键词的相似问法",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "required_citations": true,
+        "answer_terms": true,
+        "forbidden_answer_terms": true,
+        "required_actions": true,
+        "call_limits": true,
+        "citation_provenance": true
+      },
+      "actual_status": "answered",
+      "expected": {
+        "statuses": [
+          "answered"
+        ],
+        "citations": [
+          "P01"
+        ],
+        "answer_contains": [
+          "字幕"
+        ]
+      },
+      "trace": "paraphrase/trace.json",
+      "model_calls": 3
+    },
+    {
+      "case_id": "followup",
+      "description": "历史用于指代消解，事实重新读取",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "required_citations": true,
+        "answer_terms": true,
+        "forbidden_answer_terms": true,
+        "required_actions": true,
+        "call_limits": true,
+        "citation_provenance": true
+      },
+      "actual_status": "answered",
+      "expected": {
+        "statuses": [
+          "answered"
+        ],
+        "citations": [
+          "P01"
+        ],
+        "answer_contains": [
+          "SRT",
+          "MP4"
+        ],
+        "actions": [
+          "read_document"
+        ]
+      },
+      "trace": "followup/trace.json",
+      "model_calls": 3
+    },
+    {
+      "case_id": "tool_failure_recovery",
+      "description": "首次读取失败后恢复，保留检索结果",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "required_citations": true,
+        "answer_terms": true,
+        "forbidden_answer_terms": true,
+        "required_actions": true,
+        "call_limits": true,
+        "citation_provenance": true,
+        "failure_observed": true,
+        "successful_search_not_repeated": true
+      },
+      "actual_status": "answered",
+      "expected": {
+        "statuses": [
+          "answered"
+        ],
+        "citations": [
+          "P01"
+        ],
+        "tool_failure": true,
+        "preserve_search": true
+      },
+      "trace": "tool_failure_recovery/trace.json",
+      "model_calls": 4
+    },
+    {
+      "case_id": "tool_failure_stop",
+      "description": "持续检索失败应明确停止",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "required_citations": true,
+        "answer_terms": true,
+        "forbidden_answer_terms": true,
+        "required_actions": true,
+        "call_limits": true,
+        "citation_provenance": true,
+        "failure_observed": true
+      },
+      "actual_status": "tool_error",
+      "expected": {
+        "statuses": [
+          "tool_error"
+        ],
+        "tool_failure": true
+      },
+      "trace": "tool_failure_stop/trace.json",
+      "model_calls": 4
+    },
+    {
+      "case_id": "missing_information",
+      "description": "缺少指代对象且没有历史",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "required_citations": true,
+        "answer_terms": true,
+        "forbidden_answer_terms": true,
+        "required_actions": true,
+        "call_limits": true,
+        "citation_provenance": true
+      },
+      "actual_status": "needs_clarification",
+      "expected": {
+        "statuses": [
+          "needs_clarification"
+        ]
+      },
+      "trace": "missing_information/trace.json",
+      "model_calls": 1
+    },
+    {
+      "case_id": "partial_evidence",
+      "description": "文档存在但没有效果数据",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "required_citations": true,
+        "answer_terms": true,
+        "forbidden_answer_terms": true,
+        "required_actions": true,
+        "call_limits": true,
+        "citation_provenance": true
+      },
+      "actual_status": "insufficient_evidence",
+      "expected": {
+        "statuses": [
+          "insufficient_evidence"
+        ],
+        "citations": [
+          "P01"
+        ],
+        "answer_excludes": [
+          "80%"
+        ]
+      },
+      "trace": "partial_evidence/trace.json",
+      "model_calls": 3
+    },
+    {
+      "case_id": "step_limit",
+      "description": "模型决策步数上限",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "required_citations": true,
+        "answer_terms": true,
+        "forbidden_answer_terms": true,
+        "required_actions": true,
+        "call_limits": true,
+        "citation_provenance": true
+      },
+      "actual_status": "incomplete_limit",
+      "expected": {
+        "statuses": [
+          "incomplete_limit"
+        ]
+      },
+      "trace": "step_limit/trace.json",
+      "model_calls": 1
+    },
+    {
+      "case_id": "tool_limit",
+      "description": "业务工具调用上限",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "required_citations": true,
+        "answer_terms": true,
+        "forbidden_answer_terms": true,
+        "required_actions": true,
+        "call_limits": true,
+        "citation_provenance": true
+      },
+      "actual_status": "incomplete_limit",
+      "expected": {
+        "statuses": [
+          "incomplete_limit"
+        ]
+      },
+      "trace": "tool_limit/trace.json",
+      "model_calls": 2
+    },
+    {
+      "case_id": "changed_document",
+      "description": "相同问题但原文内容替换，答案应变化",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "required_citations": true,
+        "answer_terms": true,
+        "forbidden_answer_terms": true,
+        "required_actions": true,
+        "call_limits": true,
+        "citation_provenance": true
+      },
+      "actual_status": "answered",
+      "expected": {
+        "statuses": [
+          "answered"
+        ],
+        "citations": [
+          "P01"
+        ],
+        "answer_contains": [
+          "不支持"
+        ]
+      },
+      "trace": "changed_document/trace.json",
+      "model_calls": 3
+    },
+    {
+      "case_id": "single_policy",
+      "description": "仅有单一制度依据，无冲突",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "required_citations": true,
+        "answer_terms": true,
+        "forbidden_answer_terms": true,
+        "required_actions": true,
+        "call_limits": true,
+        "citation_provenance": true
+      },
+      "actual_status": "answered",
+      "expected": {
+        "statuses": [
+          "answered"
+        ],
+        "citations": [
+          "D01"
+        ],
+        "answer_contains": [
+          "30"
+        ]
+      },
+      "trace": "single_policy/trace.json",
+      "model_calls": 4
+    }
+  ],
+  "semantic_review": "自动断言仅覆盖指定事实与状态；仍需人工核对每条回答是否被引用支持"
+}

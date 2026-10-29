@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "run_id": "3cbe0206-c0e0-4e5d-991d-5d0e18e2ed05",
+  "started_at": "2026-10-29T07:38:52.940051+00:00",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "endpoint_host": "api.deepseek.com",
+  "evidence_type": "real_model_run",
+  "corpus_sha256": "2fdea7015f3d86041d184e4a7717c97eb71b21608a55227c1cf6c6aca0def512",
+  "prompt_sha256": "d68d1b19fcf9f372e3e2914f8e679f34071b778e8c8faa6428ffc035b0298ff6",
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 10
+  },
+  "input": {
+    "question": "星剪支持自动生成字幕吗？",
+    "history": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "model_step": 1,
+      "timestamp": "2026-10-29T07:38:58.191112+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "星剪 自动生成字幕",
+        "top_k": 10
+      },
+      "decision_reason": "检索星剪字幕功能相关资料",
+      "observation": {
+        "ok": true,
+        "query": "星剪 自动生成字幕",
+        "hits": [
+          {
+            "doc_id": "P01",
+            "title": "星剪产品功能FAQ",
+            "version_date": "2026-05-08",
+            "topics": [
+              "产品能力"
+            ],
+            "score": 6.2638,
+            "snippet": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。\n星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。\n本资料没有提供效率提升、识别准确率或收益的测量数据。"
+          }
+        ],
+        "total_matches": 1,
+        "has_more": false
+      },
+      "observation_summary": "命中1份，返回：P01",
+      "next_action": "read_document"
+    },
+    {
+      "step": 2,
+      "model_step": 2,
+      "timestamp": "2026-10-29T07:39:03.956347+00:00",
+      "action": "read_document",
+      "arguments": {
+        "doc_id": "P01"
+      },
+      "decision_reason": "读取FAQ原文以准确引用字幕能力",
+      "observation": {
+        "ok": false,
+        "error": {
+          "code": "injected_tool_failure",
+          "message": "合成故障：工具暂时不可用",
+          "retryable": true
+        }
+      },
+      "observation_summary": "injected_tool_failure: 合成故障：工具暂时不可用",
+      "next_action": "read_document"
+    },
+    {
+      "step": 3,
+      "model_step": 3,
+      "timestamp": "2026-10-29T07:39:09.514591+00:00",
+      "action": "read_document",
+      "arguments": {
+        "doc_id": "P01"
+      },
+      "decision_reason": "工具故障，重试读取原文",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "P01",
+          "title": "星剪产品功能FAQ",
+          "version_date": "2026-05-08",
+          "topics": [
+            "产品能力"
+          ],
+          "content": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。\n星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。\n本资料没有提供效率提升、识别准确率或收益的测量数据。"
+        }
+      },
+      "observation_summary": "已读取 P01 / 2026-05-08 / 82字符",
+      "next_action": "finish"
+    },
+    {
+      "step": 4,
+      "model_step": 4,
+      "timestamp": "2026-10-29T07:39:15.706993+00:00",
+      "action": "finish",
+      "arguments": {
+        "status": "answered",
+        "answer": "支持。根据《星剪产品功能FAQ》，星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容；字幕可导出为SRT文件，视频导出支持MP4格式。该资料未提供识别准确率、效率提升等测量数据，因此无法给出准确率方面的说明。[P01]",
+        "citations": [
+          {
+            "doc_id": "P01",
+            "version_date": "2026-05-08",
+            "quote": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。\n星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。\n本资料没有提供效率提升、识别准确率或收益的测量数据。"
+          }
+        ],
+        "gaps": [],
+        "conflicts": []
+      },
+      "decision_reason": "已读取FAQ原文，明确支持自动生成中文字幕",
+      "observation": {
+        "ok": true,
+        "message": "结构与引用溯源校验通过；语义支持性仍需评估"
+      },
+      "observation_summary": "结构与引用溯源校验通过；语义支持性仍需评估",
+      "next_action": "end:answered"
+    }
+  ],
+  "result": {
+    "status": "answered",
+    "answer": "支持。根据《星剪产品功能FAQ》，星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容；字幕可导出为SRT文件，视频导出支持MP4格式。该资料未提供识别准确率、效率提升等测量数据，因此无法给出准确率方面的说明。[P01]",
+    "citations": [
+      {
+        "doc_id": "P01",
+        "version_date": "2026-05-08",
+        "quote": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。\n星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。\n本资料没有提供效率提升、识别准确率或收益的测量数据。"
+      }
+    ],
+    "gaps": [],
+    "conflicts": []
+  },
+  "model_calls": 4,
+  "tool_calls": 3,
+  "elapsed_seconds": 22.766,
+  "finished_at": "2026-10-29T07:39:15.706993+00:00"
+}

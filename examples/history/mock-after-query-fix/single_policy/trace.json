@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "run_id": "79b494aa-7f82-456c-9305-e5239a1bdee9",
+  "started_at": "2026-10-29T07:30:38.163717+00:00",
+  "mode": "mock",
+  "model": "offline-rule-simulator-v1",
+  "endpoint_host": null,
+  "evidence_type": "offline_simulation",
+  "corpus_sha256": "02d7052025eb952bdb22b9004a43da9cfee1ace773621f01bcb19bbce1e66c36",
+  "prompt_sha256": "f08e46125d0ddbc9190aea5f51078f77b3d90d3a6c5498de5ca8d10ec7ffd03e",
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 10
+  },
+  "input": {
+    "question": "报销期限是多久？",
+    "history": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "timestamp": "2026-10-29T07:30:38.163717+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "报销期限是多久？",
+        "top_k": 10
+      },
+      "decision_reason": "先查找与问题相关的资料。",
+      "observation": {
+        "ok": true,
+        "query": "报销期限是多久？",
+        "hits": [
+          {
+            "doc_id": "D01",
+            "title": "费用报销制度A",
+            "version_date": "2026-01-10",
+            "topics": [
+              "报销期限"
+            ],
+            "score": 3.2958,
+            "snippet": "报销申请应在费用发生后30天内提交。\n本资料未注明适用部门、优先级或与其他制度的替代关系。"
+          }
+        ],
+        "total_matches": 1,
+        "has_more": false
+      },
+      "observation_summary": "命中1份，返回：D01",
+      "next_action": "read_document"
+    },
+    {
+      "step": 2,
+      "timestamp": "2026-10-29T07:30:38.163717+00:00",
+      "action": "read_document",
+      "arguments": {
+        "doc_id": "D01"
+      },
+      "decision_reason": "读取候选文档原文，核对事实和引用。",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "D01",
+          "title": "费用报销制度A",
+          "version_date": "2026-01-10",
+          "topics": [
+            "报销期限"
+          ],
+          "content": "报销申请应在费用发生后30天内提交。\n本资料未注明适用部门、优先级或与其他制度的替代关系。"
+        }
+      },
+      "observation_summary": "已读取 D01 / 2026-01-10 / 45字符",
+      "next_action": "finish"
+    },
+    {
+      "step": 3,
+      "timestamp": "2026-10-29T07:30:38.163717+00:00",
+      "action": "finish",
+      "arguments": {
+        "status": "answered",
+        "answer": "报销申请应在费用发生后30天内提交。 [D01]",
+        "citations": [
+          {
+            "doc_id": "D01",
+            "version_date": "2026-01-10",
+            "quote": "报销申请应在费用发生后30天内提交。"
+          }
+        ],
+        "gaps": [],
+        "conflicts": []
+      },
+      "decision_reason": "离线模拟器根据已返回的工具结果输出；不代表真实模型决策。",
+      "observation": {
+        "ok": true,
+        "message": "结构与引用溯源校验通过；语义支持性仍需评估"
+      },
+      "observation_summary": "结构与引用溯源校验通过；语义支持性仍需评估",
+      "next_action": "end:answered"
+    }
+  ],
+  "result": {
+    "status": "answered",
+    "answer": "报销申请应在费用发生后30天内提交。 [D01]",
+    "citations": [
+      {
+        "doc_id": "D01",
+        "version_date": "2026-01-10",
+        "quote": "报销申请应在费用发生后30天内提交。"
+      }
+    ],
+    "gaps": [],
+    "conflicts": []
+  },
+  "model_calls": 3,
+  "tool_calls": 2,
+  "elapsed_seconds": 0.015,
+  "finished_at": "2026-10-29T07:30:38.163717+00:00"
+}

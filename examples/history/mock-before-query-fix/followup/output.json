@@ -1,0 +1,16 @@
+{
+  "mode": "mock",
+  "model": "offline-rule-simulator-v1",
+  "evidence_type": "offline_simulation",
+  "status": "answered",
+  "answer": "星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。 [P01]",
+  "citations": [
+    {
+      "doc_id": "P01",
+      "version_date": "2026-05-08",
+      "quote": "星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。"
+    }
+  ],
+  "gaps": [],
+  "conflicts": []
+}

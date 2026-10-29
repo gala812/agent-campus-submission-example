@@ -1,0 +1,12 @@
+{
+  "mode": "live",
+  "model": "deepseek-flash",
+  "evidence_type": "real_model_run",
+  "status": "tool_error",
+  "answer": "检索工具连续三次返回“合成故障：工具暂时不可用”，无法读取任何企业资料，因此目前无法确认星剪是否支持自动生成字幕。请稍后重试。",
+  "citations": [],
+  "gaps": [
+    "检索工具不可用，未能获取星剪字幕功能相关文档"
+  ],
+  "conflicts": []
+}

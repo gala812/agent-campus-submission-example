@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "run_id": "4654d454-a50d-4def-ba82-3daa10c1d70a",
+  "started_at": "2026-10-29T07:38:35.576496+00:00",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "endpoint_host": "api.deepseek.com",
+  "evidence_type": "real_model_run",
+  "corpus_sha256": "2fdea7015f3d86041d184e4a7717c97eb71b21608a55227c1cf6c6aca0def512",
+  "prompt_sha256": "d68d1b19fcf9f372e3e2914f8e679f34071b778e8c8faa6428ffc035b0298ff6",
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 10
+  },
+  "input": {
+    "question": "那它能导出什么格式？",
+    "history": [
+      {
+        "role": "user",
+        "content": "星剪支持字幕吗？"
+      },
+      {
+        "role": "assistant",
+        "content": "支持自动生成中文字幕。"
+      }
+    ]
+  },
+  "trace": [
+    {
+      "step": 1,
+      "model_step": 1,
+      "timestamp": "2026-10-29T07:38:41.464719+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "星剪 导出格式",
+        "top_k": 10
+      },
+      "decision_reason": "查询星剪支持的导出格式",
+      "observation": {
+        "ok": true,
+        "query": "星剪 导出格式",
+        "hits": [
+          {
+            "doc_id": "P01",
+            "title": "星剪产品功能FAQ",
+            "version_date": "2026-05-08",
+            "topics": [
+              "产品能力"
+            ],
+            "score": 3.7583,
+            "snippet": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。\n星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。\n本资料没有提供效率提升、识别准确率或收益的测量数据。"
+          }
+        ],
+        "total_matches": 1,
+        "has_more": false
+      },
+      "observation_summary": "命中1份，返回：P01",
+      "next_action": "search_documents"
+    },
+    {
+      "step": 2,
+      "model_step": 1,
+      "timestamp": "2026-10-29T07:38:41.464719+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "星剪 字幕 导出 SRT",
+        "top_k": 10
+      },
+      "decision_reason": "结合上文字幕话题查导出格式",
+      "observation": {
+        "ok": true,
+        "query": "星剪 字幕 导出 SRT",
+        "hits": [
+          {
+            "doc_id": "P01",
+            "title": "星剪产品功能FAQ",
+            "version_date": "2026-05-08",
+            "topics": [
+              "产品能力"
+            ],
+            "score": 5.0111,
+            "snippet": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。\n星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。\n本资料没有提供效率提升、识别准确率或收益的测量数据。"
+          }
+        ],
+        "total_matches": 1,
+        "has_more": false
+      },
+      "observation_summary": "命中1份，返回：P01",
+      "next_action": "read_document"
+    },
+    {
+      "step": 3,
+      "model_step": 2,
+      "timestamp": "2026-10-29T07:38:47.133214+00:00",
+      "action": "read_document",
+      "arguments": {
+        "doc_id": "P01"
+      },
+      "decision_reason": "读取原文以准确引用导出格式",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "P01",
+          "title": "星剪产品功能FAQ",
+          "version_date": "2026-05-08",
+          "topics": [
+            "产品能力"
+          ],
+          "content": "星剪支持自动生成中文字幕，生成后可逐句编辑字幕内容。\n星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。\n本资料没有提供效率提升、识别准确率或收益的测量数据。"
+        }
+      },
+      "observation_summary": "已读取 P01 / 2026-05-08 / 82字符",
+      "next_action": "finish"
+    },
+    {
+      "step": 4,
+      "model_step": 3,
+      "timestamp": "2026-10-29T07:38:52.931364+00:00",
+      "action": "finish",
+      "arguments": {
+        "status": "answered",
+        "answer": "星剪的字幕可导出为 SRT 文件；视频导出支持 MP4 格式。[P01]",
+        "citations": [
+          {
+            "doc_id": "P01",
+            "version_date": "2026-05-08",
+            "quote": "星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。"
+          }
+        ],
+        "gaps": [],
+        "conflicts": []
+      },
+      "decision_reason": "已读取产品FAQ原文，明确字幕与视频导出格式",
+      "observation": {
+        "ok": true,
+        "message": "结构与引用溯源校验通过；语义支持性仍需评估"
+      },
+      "observation_summary": "结构与引用溯源校验通过；语义支持性仍需评估",
+      "next_action": "end:answered"
+    }
+  ],
+  "result": {
+    "status": "answered",
+    "answer": "星剪的字幕可导出为 SRT 文件；视频导出支持 MP4 格式。[P01]",
+    "citations": [
+      {
+        "doc_id": "P01",
+        "version_date": "2026-05-08",
+        "quote": "星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。"
+      }
+    ],
+    "gaps": [],
+    "conflicts": []
+  },
+  "model_calls": 3,
+  "tool_calls": 3,
+  "elapsed_seconds": 17.359,
+  "finished_at": "2026-10-29T07:38:52.932393+00:00"
+}

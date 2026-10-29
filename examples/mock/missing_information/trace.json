@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "run_id": "b2df02d5-ce39-4cf7-a787-ee36b6323d3e",
+  "started_at": "2026-10-29T07:46:18.532487+00:00",
+  "mode": "mock",
+  "model": "offline-rule-simulator-v1",
+  "endpoint_host": null,
+  "evidence_type": "offline_simulation",
+  "corpus_sha256": "2fdea7015f3d86041d184e4a7717c97eb71b21608a55227c1cf6c6aca0def512",
+  "prompt_sha256": "bce43a9d28b8f2bee77a068703f6417144c82e6e1870413b1815d63ae6327870",
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 10
+  },
+  "input": {
+    "question": "它呢？",
+    "history": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "model_step": 1,
+      "timestamp": "2026-10-29T07:46:18.532487+00:00",
+      "action": "finish",
+      "arguments": {
+        "status": "needs_clarification",
+        "answer": "请补充要查询的制度、产品或具体问题。",
+        "citations": [],
+        "gaps": [
+          "缺少明确查询对象"
+        ],
+        "conflicts": []
+      },
+      "decision_reason": "离线模拟器根据已返回的工具结果输出；不代表真实模型决策。",
+      "observation": {
+        "ok": true,
+        "message": "结构与引用溯源校验通过；语义支持性仍需评估"
+      },
+      "observation_summary": "结构与引用溯源校验通过；语义支持性仍需评估",
+      "next_action": "end:needs_clarification"
+    }
+  ],
+  "result": {
+    "status": "needs_clarification",
+    "answer": "请补充要查询的制度、产品或具体问题。",
+    "citations": [],
+    "gaps": [
+      "缺少明确查询对象"
+    ],
+    "conflicts": []
+  },
+  "model_calls": 1,
+  "tool_calls": 0,
+  "elapsed_seconds": 0.0,
+  "finished_at": "2026-10-29T07:46:18.532487+00:00"
+}

@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "run_id": "2e82e812-c2b0-4b90-a447-d96b1dc984e4",
+  "started_at": "2026-10-29T07:46:18.553485+00:00",
+  "mode": "mock",
+  "model": "offline-rule-simulator-v1",
+  "endpoint_host": null,
+  "evidence_type": "offline_simulation",
+  "corpus_sha256": "aa49c37f6010ad8913d5fff2a43b419b04bd87869ee891170edd5027ac6e1065",
+  "prompt_sha256": "bce43a9d28b8f2bee77a068703f6417144c82e6e1870413b1815d63ae6327870",
+  "limits": {
+    "max_steps": 12,
+    "max_tool_calls": 10
+  },
+  "input": {
+    "question": "星剪支持自动生成字幕吗？",
+    "history": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "model_step": 1,
+      "timestamp": "2026-10-29T07:46:18.553485+00:00",
+      "action": "search_documents",
+      "arguments": {
+        "query": "星剪支持自动生成字幕吗？",
+        "top_k": 10
+      },
+      "decision_reason": "先查找与问题相关的资料。",
+      "observation": {
+        "ok": true,
+        "query": "星剪支持自动生成字幕吗？",
+        "hits": [
+          {
+            "doc_id": "P01",
+            "title": "星剪产品功能FAQ",
+            "version_date": "2026-06-01",
+            "topics": [
+              "产品能力"
+            ],
+            "score": 11.2749,
+            "snippet": "星剪当前版本不支持自动生成字幕，仅支持手动输入和编辑字幕。\n星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。\n本资料没有提供效率提升的测量数据。"
+          }
+        ],
+        "total_matches": 1,
+        "has_more": false
+      },
+      "observation_summary": "命中1份，返回：P01",
+      "next_action": "read_document"
+    },
+    {
+      "step": 2,
+      "model_step": 2,
+      "timestamp": "2026-10-29T07:46:18.553485+00:00",
+      "action": "read_document",
+      "arguments": {
+        "doc_id": "P01"
+      },
+      "decision_reason": "读取候选文档原文，核对事实和引用。",
+      "observation": {
+        "ok": true,
+        "document": {
+          "doc_id": "P01",
+          "title": "星剪产品功能FAQ",
+          "version_date": "2026-06-01",
+          "topics": [
+            "产品能力"
+          ],
+          "content": "星剪当前版本不支持自动生成字幕，仅支持手动输入和编辑字幕。\n星剪支持将字幕导出为SRT文件；视频导出支持MP4格式。\n本资料没有提供效率提升的测量数据。"
+        }
+      },
+      "observation_summary": "已读取 P01 / 2026-06-01 / 76字符",
+      "next_action": "finish"
+    },
+    {
+      "step": 3,
+      "model_step": 3,
+      "timestamp": "2026-10-29T07:46:18.554486+00:00",
+      "action": "finish",
+      "arguments": {
+        "status": "answered",
+        "answer": "星剪当前版本不支持自动生成字幕，仅支持手动输入和编辑字幕。 [P01]",
+        "citations": [
+          {
+            "doc_id": "P01",
+            "version_date": "2026-06-01",
+            "quote": "星剪当前版本不支持自动生成字幕，仅支持手动输入和编辑字幕。"
+          }
+        ],
+        "gaps": [],
+        "conflicts": []
+      },
+      "decision_reason": "离线模拟器根据已返回的工具结果输出；不代表真实模型决策。",
+      "observation": {
+        "ok": true,
+        "message": "结构与引用溯源校验通过；语义支持性仍需评估"
+      },
+      "observation_summary": "结构与引用溯源校验通过；语义支持性仍需评估",
+      "next_action": "end:answered"
+    }
+  ],
+  "result": {
+    "status": "answered",
+    "answer": "星剪当前版本不支持自动生成字幕，仅支持手动输入和编辑字幕。 [P01]",
+    "citations": [
+      {
+        "doc_id": "P01",
+        "version_date": "2026-06-01",
+        "quote": "星剪当前版本不支持自动生成字幕，仅支持手动输入和编辑字幕。"
+      }
+    ],
+    "gaps": [],
+    "conflicts": []
+  },
+  "model_calls": 3,
+  "tool_calls": 2,
+  "elapsed_seconds": 0.016,
+  "finished_at": "2026-10-29T07:46:18.554486+00:00"
+}
