@@ -19,7 +19,7 @@
 - Python 3.8+；新环境建议 Python 3.11+。
 - 仅依赖 Python 标准库，不需要模型框架、向量数据库或第三方包。
 - 本地验证的具体版本及测试时间记录于 `examples/test-results/summary.json`。
-- `.github/workflows/tests.yml` 配置了 Python 3.8 / 3.11 / 3.13 的离线 CI；配置存在不代表远程 CI 已实际执行。
+- 首次代码提交已通过 Python 3.8 / 3.11 / 3.13 的 GitHub 离线 CI，见 [实测记录](examples/github-ci.json)；后续提交以对应工作流结果为准。
 
 在项目根目录执行：
 

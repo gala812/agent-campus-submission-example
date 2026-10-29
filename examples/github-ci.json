@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/gala812/Company-Q-A-Agent",
+  "publicly_readable": true,
+  "verified_code_commit": "4105d1f9bb7b12c914727a990b2278fd20fd3991",
+  "workflow": "Offline checks",
+  "run_url": "https://github.com/gala812/Company-Q-A-Agent/actions/runs/40838668910",
+  "status": "success",
+  "jobs_completed": 3,
+  "python_matrix": ["3.8", "3.11", "3.13"],
+  "observed_via": "Public GitHub workflow page; unauthenticated API returned HTTP 403, so its response was not used as CI evidence",
+  "scope": "Offline engineering and Mock acceptance checks only; DeepSeek evidence is stored separately under examples/live"
+}
