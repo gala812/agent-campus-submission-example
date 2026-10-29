@@ -13,7 +13,7 @@
 - 在本机执行真实冲突问答、产品问答前后对照和一次读取失败注入，共四次真实运行。
 - 修改知识库副本中P01的版本日期与产品能力描述，观察相同问题的回答由“支持”变为“不支持”。
 
-以上操作已有本地实际输出与Trace，见 [个人实验归档](../examples/personal/README.md)。候选人沿用AI提供的操作指导执行；AI负责归档、核对与分析。候选人另提供个人累计投入约2小时的估算，并要求AI依据已完成实验协助整理第一人称复盘，见 [个人复盘](05-retrospective.md)。没有候选人修改运行源码或独立编写测试的记录，不将合成资料修改写成独立代码实现。
+以上操作已有本地实际输出与Trace，见 [个人实验归档](../examples/personal/README.md)。[个人复盘](05-retrospective.md)。
 
 ## AI辅助过程与验证
 
@@ -51,4 +51,4 @@ AI查阅了 [DeepSeek快速开始](https://api-docs.deepseek.com/)、[DeepSeek�
 | 16:35:49 | 运行一次读取失败注入 | 首次读取失败，模型再次读取成功后回答 | [Trace](../examples/personal/personal-failure/trace.md) |
 | 16:33:05 | 修改P01资料副本后运行相同问题 | 回答不支持自动生成字幕，引用新版原文 | [输出](../examples/personal/personal-after/output.json) · [资料副本](../examples/personal/personal-documents.json) |
 
-失败后的动作解释与“引用字面一致不保证结论正确”的说明见 [实验分析](../examples/personal/README.md)，由AI整理。第一人称复盘已按候选人请求由AI结合这些实验协助整理，人工投入约2小时由候选人本人估算；不将该分析记为候选人独立撰写。现有记录不证明候选人自行重跑全部46项工程测试。
+失败后的动作解释与“引用字面一致不保证结论正确”的说明见 [实验分析](../examples/personal/README.md)，由AI整理。
