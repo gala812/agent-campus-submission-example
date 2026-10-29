@@ -4,8 +4,8 @@
   "started_at": "2026-10-29T15:16:13+08:00",
   "code_and_validation_finished_at": "2026-10-29T15:53:37.100123+08:00",
   "elapsed_minutes": 37.4,
-  "candidate_manual_time_minutes": null,
-  "candidate_manual_time_note": "未获本人投入时间记录，不能推定或代填",
+  "candidate_manual_time_minutes": 120,
+  "candidate_manual_time_note": "本人报告约2小时，为累计人工投入估算；非精确计时，不与AI开发墙钟时间直接相加。",
   "milestones": [
     {
       "time": "2026-10-29T15:16:13+08:00",
@@ -25,7 +25,6 @@
     }
   ],
   "unfinished": [
-    "候选人自行撰写动作解释、语义支持性理解、学习体会与人工用时",
     "更大独立数据集与稳定性评估",
     "生产权限和运行治理"
   ],

@@ -3,7 +3,7 @@
   "timezone": "Asia/Shanghai",
   "provenance": "候选人执行CLI与修改合成资料；AI核对本地原始输出、Trace并整理本记录。",
   "source_commit": "cfb9541b24deebb1080e3b02f1f75ffd336300f0",
-  "candidate_manual_time_minutes": null,
+  "candidate_manual_time_minutes": 120,
   "runs": [
     {
       "case": "personal-conflict",
@@ -69,5 +69,6 @@
         "trace.md": "554b4c61a605dd00880cf3428c3f1cb079a4adc1252259392d5ce65ffc165278"
       }
     }
-  ]
+  ],
+  "candidate_manual_time_note": "本人报告约2小时，为累计人工投入估算；非精确计时，不与AI开发墙钟时间直接相加。"
 }
