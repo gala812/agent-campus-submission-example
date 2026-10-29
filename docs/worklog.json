@@ -25,8 +25,38 @@
     }
   ],
   "unfinished": [
-    "候选人独立复现与个人修改记录",
+    "候选人自行撰写动作解释、语义支持性理解、学习体会与人工用时",
     "更大独立数据集与稳定性评估",
     "生产权限和运行治理"
-  ]
+  ],
+  "personal_experiments": {
+    "record": "../examples/personal/summary.json",
+    "note": "四次运行已归档；运行起止时间不代表人工投入时间。",
+    "runs": [
+      {
+        "case": "personal-conflict",
+        "started_at": "2026-10-29T16:22:30.538181+08:00",
+        "finished_at": "2026-10-29T16:22:36.350960+08:00",
+        "runtime_seconds": 5.813
+      },
+      {
+        "case": "personal-before",
+        "started_at": "2026-10-29T16:26:26.471700+08:00",
+        "finished_at": "2026-10-29T16:26:29.680132+08:00",
+        "runtime_seconds": 3.208
+      },
+      {
+        "case": "personal-failure",
+        "started_at": "2026-10-29T16:35:49.142768+08:00",
+        "finished_at": "2026-10-29T16:35:53.687057+08:00",
+        "runtime_seconds": 4.544
+      },
+      {
+        "case": "personal-after",
+        "started_at": "2026-10-29T16:33:05.320993+08:00",
+        "finished_at": "2026-10-29T16:33:08.576822+08:00",
+        "runtime_seconds": 3.256
+      }
+    ]
+  }
 }

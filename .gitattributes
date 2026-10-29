@@ -1,1 +1,4 @@
 * text=auto eol=lf
+
+# Preserve archived run evidence byte for byte.
+examples/personal/*/trace.md -text

@@ -1,5 +1,6 @@
 # 验证材料导航
 
+- [personal/README.md](personal/README.md)：候选人实际执行的冲突、资料修改对照、一次失败注入；四次原始运行与资料副本。
 - [live/summary.md](live/summary.md)：最终DeepSeek真实模型验收。
 - [live/semantic-review.md](live/semantic-review.md)：AI逐项核对引用与回答，不代替候选人复核。
 - [mock/summary.md](mock/summary.md)：最终离线模拟，不能证明模型决策。

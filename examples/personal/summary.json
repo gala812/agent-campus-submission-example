@@ -1,0 +1,73 @@
+{
+  "evidence_type": "real_model_run",
+  "timezone": "Asia/Shanghai",
+  "provenance": "候选人执行CLI与修改合成资料；AI核对本地原始输出、Trace并整理本记录。",
+  "source_commit": "cfb9541b24deebb1080e3b02f1f75ffd336300f0",
+  "candidate_manual_time_minutes": null,
+  "runs": [
+    {
+      "case": "personal-conflict",
+      "started_at": "2026-10-29T16:22:30.538181+08:00",
+      "finished_at": "2026-10-29T16:22:36.350960+08:00",
+      "runtime_seconds": 5.813,
+      "mode": "live",
+      "model": "deepseek-flash",
+      "status": "needs_clarification",
+      "corpus_sha256": "2fdea7015f3d86041d184e4a7717c97eb71b21608a55227c1cf6c6aca0def512",
+      "file_sha256": {
+        "input.json": "828661de74818d77ffcc45f04fe029d33944a221fbdd58c084d77f35687451b0",
+        "output.json": "edfe7192005a214e09938d7c23b4a252836e1374293a943bf7150d08302fc93b",
+        "trace.json": "6f69270ff2b29ae63f2d8b69de23c1dee8ee21166238146614522c9d0c5fa4a7",
+        "trace.md": "ee26cca643348b37e992a0d6cb2a801977ad15a461f1dbc2dbf92bbb6c6f480b"
+      }
+    },
+    {
+      "case": "personal-before",
+      "started_at": "2026-10-29T16:26:26.471700+08:00",
+      "finished_at": "2026-10-29T16:26:29.680132+08:00",
+      "runtime_seconds": 3.208,
+      "mode": "live",
+      "model": "deepseek-flash",
+      "status": "answered",
+      "corpus_sha256": "2fdea7015f3d86041d184e4a7717c97eb71b21608a55227c1cf6c6aca0def512",
+      "file_sha256": {
+        "input.json": "e1018ef193d910e4853b225fb94221c9956f0b521a6a68628c08cb7ff37473ee",
+        "output.json": "f43387ecbb70fffbe268da039fbd22af11718b8a92e6d751b9576424783f6cf9",
+        "trace.json": "4b17fc33e0cc8eb12334432da2a6b88efaec4e5562af76afca53bd20859ae3c9",
+        "trace.md": "9a0f127f45cab0b2895534bfe6532cb6743aaff4f23f06792a8118ecaebda59e"
+      }
+    },
+    {
+      "case": "personal-failure",
+      "started_at": "2026-10-29T16:35:49.142768+08:00",
+      "finished_at": "2026-10-29T16:35:53.687057+08:00",
+      "runtime_seconds": 4.544,
+      "mode": "live",
+      "model": "deepseek-flash",
+      "status": "answered",
+      "corpus_sha256": "2fdea7015f3d86041d184e4a7717c97eb71b21608a55227c1cf6c6aca0def512",
+      "file_sha256": {
+        "input.json": "e1018ef193d910e4853b225fb94221c9956f0b521a6a68628c08cb7ff37473ee",
+        "output.json": "f43387ecbb70fffbe268da039fbd22af11718b8a92e6d751b9576424783f6cf9",
+        "trace.json": "6475c4945987bb5b04ca9d11d3078f03e33350f8b56b1a01be214fd5bd136233",
+        "trace.md": "2a892f959e3c37c94b29fcfef2887207e494c86b72e805a20361211b507cf6f2"
+      }
+    },
+    {
+      "case": "personal-after",
+      "started_at": "2026-10-29T16:33:05.320993+08:00",
+      "finished_at": "2026-10-29T16:33:08.576822+08:00",
+      "runtime_seconds": 3.256,
+      "mode": "live",
+      "model": "deepseek-flash",
+      "status": "answered",
+      "corpus_sha256": "2da839fd19953c1d3e71b5cb005e89fc3de91d34b4b47bd1ae4f94f06c618129",
+      "file_sha256": {
+        "input.json": "e1018ef193d910e4853b225fb94221c9956f0b521a6a68628c08cb7ff37473ee",
+        "output.json": "5d8f39eaa7d70c23ae096577ed4b1030586667fd8a5933a78b78f6ff0f115401",
+        "trace.json": "a8f32c810015b67721b3107dc294085f5372fcdef0f54b33c2e31ce35c952947",
+        "trace.md": "554b4c61a605dd00880cf3428c3f1cb079a4adc1252259392d5ce65ffc165278"
+      }
+    }
+  ]
+}

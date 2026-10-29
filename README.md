@@ -12,7 +12,8 @@
 2. 比较 [正常问答 Trace](examples/live/normal/trace.md)、[冲突补查 Trace](examples/live/conflict/trace.md) 和 [工具失败恢复 Trace](examples/live/tool_failure_recovery/trace.md)。
 3. 查看 [自动化测试结果](examples/test-results/summary.json)、[评估与失败分析](docs/03-evaluation.md)。
 4. 按下方命令运行离线入口；配置密钥后可独立复现真实模型流程。
-5. 查看 [AI 使用记录](docs/04-ai-usage.md) 与 [提交信息](SUBMISSION.md)。
+5. 查看 [候选人实际操作实验](examples/personal/README.md)：冲突、资料修改前后对照、一次失败注入。
+6. 查看 [AI 使用记录](docs/04-ai-usage.md) 与 [提交信息](SUBMISSION.md)。
 
 ## 环境与安装
 
